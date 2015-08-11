@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  get 'pages/home'
+
+  get 'users/new'
+
+  get 'signup' => 'users#new'
+  get 'login' => 'sessions#new'
+  resources :sessions, only: [:create, :destroy]
+  resources :users, except: :new
+  resources :posts do
+    resources :comments, only: [:new, :create,  :destroy], shallow: true
+  end
+  root 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,7 +11,21 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require materialize-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $(".button-collapse").sideNav();
+  $('.modal-trigger').leanModal();
+  $('nav li a').click(
+    function(){
+      // $("#loader").html('<h1 class="progress"><div class="indeterminate" ></div></h1>');
+$(document).on('page:fetch',   function() {
+  $("body").after('<h1 class="progress"><div class="indeterminate" ></div></h1>'); });
+$(document).on('page:change',  function() { $(".progress").remove(); });
+// $(document).on('page:restore', function() { NProgress.remove(); });
+  });
+});

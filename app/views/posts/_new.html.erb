@@ -1,0 +1,14 @@
+<%= form_for(post) do |f| %>
+
+  <div class="input-field">
+  <%= f.hidden_field :user_id, value: @current_user.id %>
+    <%= f.text_field :title, class: 'validate', pattern: '.{3,50}', required: true, title: "3-50 characters", length: 50 %>
+    <%= f.label :title %>
+  </div>
+  <div class="input-field">
+    <%= f.text_area :content, class:'materialize-textarea validate', pattern: '.{,1000}', required: true, title: "Max 1000 characters", length: 1000 %>
+    <%= f.label :content %>
+  </div>
+
+  <%= f.submit "Create", class: 'btn'%>
+<% end %>

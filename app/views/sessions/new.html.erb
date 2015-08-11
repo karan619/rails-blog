@@ -1,0 +1,14 @@
+<% provide(:title, "Log In") %>
+<%= form_for(:session, url: sessions_path) do |f| %>
+  <div class="input-field">
+    <%= f.email_field :email, required: true, class: 'validate' %>
+    <%= f.label :email %>
+  </div>
+  <div class="input-field">
+    <%= f.password_field :password, class: 'validate', pattern: ".{8,20}", required: true, title: "8-20 characters" %>
+    <%= f.label :password %>
+  </div>
+  <div class="input-field">
+    <%= f.submit "Log In", class: 'btn green' %>
+  </div>
+<% end %>

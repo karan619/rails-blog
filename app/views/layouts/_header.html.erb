@@ -1,3 +1,4 @@
+<loader id="loader"></loader>
 <nav>
   <div class="container">
 	  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -5,12 +6,20 @@
 
   <div class="container">
   	<div class="nav-wrapper">
-  		<a class="brand-logo">Hola</a>
+  		<a class="brand-logo"><%= yield(:title) || "{{ TITLE }}" %></a>
   	</div>
   </div>
-
-	<ul id="slide-out" class="side-nav fixed">
-	    <li><a href="#!">Sign Up</a></li>
-	    <li><a href="#!">Second Sidebar Link</a></li>
+  <ul id="slide-out" class="side-nav fixed">
+  <li class="brand pink accent-3 flow-text"><%= "Hello, #{current_user || 'Guest'}" %></li>
+    <% if logged_in? %>
+	    <li><%= link_to 'Profile', user_path(current_user) %> </li>
+      <li><%= link_to "Write Post", new_post_path %> </li>
+      <% else %>
+       <li><%= link_to("Sign up", signup_path) %></li>
+	    <li><%= link_to "Log in", login_path %></li>
+      <% end %>
+      <hr/>
+      <li><a>#todo About Me</a></li>
+      <li><a>#todo My Github Contributions</a></li>
   </ul>
 </nav>
