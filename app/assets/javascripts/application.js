@@ -18,14 +18,32 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $(".button-collapse").sideNav();
-  $('.modal-trigger').leanModal();
-  $('nav li a').click(
-    function(){
-      // $("#loader").html('<h1 class="progress"><div class="indeterminate" ></div></h1>');
-$(document).on('page:fetch',   function() {
-  $("body").after('<h1 class="progress"><div class="indeterminate" ></div></h1>'); });
-$(document).on('page:change',  function() { $(".progress").remove(); });
-// $(document).on('page:restore', function() { NProgress.remove(); });
-  });
+  init_navbar();
+  init_loader();
+  handle_links();
+  init_comments_modal();
 });
+
+function init_loader(){
+  $('nav li a').click(function(){
+    // $("#loader").html('<h1 class="progress"><div class="indeterminate" ></div></h1>');
+    $(document).on('page:fetch',   function() {
+      $("body").after('<h1 class="progress"><div class="indeterminate" ></div></h1>'); });
+    $(document).on('page:change',  function() { $(".progress").remove(); });
+    // $(document).on('page:restore', function() { NProgress.remove(); });
+  });
+}
+
+function handle_links(){
+  $('a').attr('target', "_blank");
+  $('nav li a').attr('target', "");
+}
+
+function init_navbar () {
+  $(".button-collapse").sideNav();
+}
+
+function init_comments_modal () {
+  $('.modal-trigger').leanModal();
+}
+
