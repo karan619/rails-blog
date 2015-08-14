@@ -16,10 +16,20 @@
 
  @import "materialize";
 
+.brand{
+  font-weight: bolder;
+  font-size: 1.5rem;
+  color: grey;
+  border-bottom: 1px solid black;
+}
+
 img{
   max-width: 100%;
+  display: block;
+  margin: auto;
 }
  body {
+  // for sticky footer
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -40,5 +50,23 @@ img{
   top: 0px;
   z-index: 1000;
   margin: 0;
-
+  height: 7px;
 }
+// container properties
+
+main {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%; }
+
+@media only screen and (min-width : 601px) {
+main {
+    width: 85%; } }
+
+@media only screen and (min-width : 993px) {
+main {
+    width: 85%; } }
+
+main .row {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem; }

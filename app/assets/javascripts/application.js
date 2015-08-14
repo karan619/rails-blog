@@ -25,11 +25,12 @@ $(document).ready(function(){
 });
 
 function init_loader(){
-  $('nav li a').click(function(){
+  $('nav li a').click(function(e){
     // $("#loader").html('<h1 class="progress"><div class="indeterminate" ></div></h1>');
-    $(document).on('page:fetch',   function() {
+    $(document).on('page:before-change',   function() {
+      $(e.target).css('color', 'green');
       $("body").after('<h1 class="progress"><div class="indeterminate" ></div></h1>'); });
-    $(document).on('page:change',  function() { $(".progress").remove(); });
+    $(document).on('page:load',  function() {$(".progress").remove(); $(e.target).css('color', 'blue'); });
     // $(document).on('page:restore', function() { NProgress.remove(); });
   });
 }

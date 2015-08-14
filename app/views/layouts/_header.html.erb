@@ -1,5 +1,6 @@
 <loader id="loader"></loader>
-<nav>
+<div class="navbar-fixed">
+<nav class="blue">
   <div class="container">
 	  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
   </div>
@@ -10,9 +11,11 @@
   	</div>
   </div>
   <ul id="slide-out" class="side-nav fixed">
-  <li class="brand pink accent-3 flow-text"><%= "Hello, #{current_user || 'Guest'}" %></li>
+  <li class="brand grey lighten-5">
+    <%= "Hello, #{current_user || 'Guest'}" %>
+  </li>
     <% if logged_in? %>
-	    <li><%= link_to 'Profile', user_path(current_user) %> </li>
+	    <li><%= link_to 'Profile', user_path(current_user), class: 'active' %> </li>
       <li><%= link_to "Write Post", new_post_path %> </li>
       <% else %>
        <li><%= link_to("Sign up", signup_path) %></li>
@@ -22,4 +25,4 @@
       <li><a>#todo About Me</a></li>
       <li><a>#todo My Github Contributions</a></li>
   </ul>
-</nav>
+</nav></div>

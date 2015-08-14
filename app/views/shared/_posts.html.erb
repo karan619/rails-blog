@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-title red-text"><%= link_to p.user.name, user_path(p.user) %>:
+      <bold><strong><%= link_to p.title, post_path(p) %></strong></bold>
+      <small class="badge"><%= time_ago_in_words(p.created_at)%> ago.</small><hr/></div>
+      <p class="flow-text">
+        <%= raw sanitize p.content, tags: %w(a script img), attributes: %w(src href alt title target) %>
+      </p>
+  </div>
+  <div class="card-action">
+    <%= link_to "Read More", post_path(p) %>
+    <%= p.comments.any? ? link_to(pluralize(p.comments.count, "Comment"), post_comments_path(p)) : "No Comments " %>
+    <%= link_to "Comment", post_comments_path(p) %>
+  </div>
+</div>

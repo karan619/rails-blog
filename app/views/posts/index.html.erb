@@ -1,8 +1,6 @@
 <% provide(:title, "Blog Posts") %>
 <% @posts.each do |p| %>
-  <%= p.user %> "user"
-  <%= p.title %>"title"
-  <%= p.content %>"content"
+ <%= render 'shared/posts', p: p %>
 <% end %>
 Showing 2 posts
 <h5>Today I learnt 'JRuby'</h5>

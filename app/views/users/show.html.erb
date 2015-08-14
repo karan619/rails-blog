@@ -1,8 +1,8 @@
 <% provide :title, "#{@user}'s Posts"%>
-  <ul class="collection with-header">
-<% @user.posts.each do |p| %>
-  <li class="collection-header">
-  <h4><%= p.title %></h4></li>
-<li class="collection-item"> <%= p.content %> </li>
-<% end %>
-</ul>
+  <% @user.posts.each do |p| %>
+<div class="card">
+  <h3 class="card-title black-text"><%= p.title %><span class="badge">comments</span><hr/></h3>
+  <p class="card-content flow-text"> <%= p.content %> </p>
+  <div class="card-action"><%= link_to "Read More", post_path(p) %><span class="badge"><%= p.created_at %></span></div>
+</div>
+  <% end %>
