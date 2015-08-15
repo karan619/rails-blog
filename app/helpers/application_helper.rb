@@ -4,7 +4,6 @@ module ApplicationHelper
   end
 
   def current_user
-    return nil unless logged_in?
     @current_user ||= User.find_by(id: session[:user_id])
   end
 

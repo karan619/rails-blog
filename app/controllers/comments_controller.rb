@@ -1,9 +1,8 @@
 class CommentsController < ApplicationController
   before_action :verify_logged_in?, only: [:new, :create, :delete]
-
   def new
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build()
+    @comment = @post.comments.build(name: @current_user)
     respond_to do |format|
       format.js
       format.html
@@ -27,7 +26,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    :name => current_user().name
     params.require(:comment).permit(:name, :comment, :post_id)
   end
 end
