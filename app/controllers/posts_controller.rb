@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :verify_logged_in?, only: [:new, :create]
   def new
     @post = current_user.posts.build
   end

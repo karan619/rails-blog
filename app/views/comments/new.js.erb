@@ -1,0 +1,2 @@
+$('#post<%= @post.id %>').html("<%= escape_javascript(render('comments/new', post: @post, comment: @comment)) %>");
+$('.preloader-wrapper').remove();

@@ -2,7 +2,7 @@
 <div class="card">
 <div class="card-content">
   <div class="input-field">
-  <%= f.hidden_field :user_id, value: @current_user.id %>
+  <%= f.hidden_field :user_id, value: current_user().id %>
     <%= f.text_field :title, class: 'validate', pattern: '.{3,100}', required: true, title: "3-100 characters", length: 100 %>
     <%= f.label :title %>
   </div>

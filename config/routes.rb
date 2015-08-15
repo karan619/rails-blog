@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resources :users, except: :new
   resources :posts do
-    resources :comments, only: [:new, :create,  :destroy], shallow: true
+    resources :comments, only: [:new, :create,  :destroy, :show], shallow: true
   end
   root 'posts#index'
 

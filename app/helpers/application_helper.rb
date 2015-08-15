@@ -11,4 +11,12 @@ module ApplicationHelper
   def login(user)
     session[:user_id] = user.id
   end
+
+  def tags
+    return %w(a script img ('h1'..'h6').to_a.join(' ') div p strong li ol ul em hr br)
+  end
+
+  def attr
+    return %w(src href alt title target)
+  end
 end

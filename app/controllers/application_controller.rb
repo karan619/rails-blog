@@ -5,4 +5,12 @@ class ApplicationController < ActionController::Base
 
   include ApplicationHelper
 
+  def verify_logged_in?
+    if request.xhr?
+      render :js => "window.location.href = '/login';" unless logged_in?
+    else
+      redirect_to login_path unless logged_in?
+    end
+    flash[:notice] = "Login to continue"
+  end
 end

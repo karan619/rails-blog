@@ -21,17 +21,12 @@ $(document).ready(function(){
   init_navbar();
   init_loader();
   // handle_links();
-  init_comments_modal();
 });
 
 function init_loader(){
-  $('nav li a').click(function(e){
-    // $("#loader").html('<h1 class="progress"><div class="indeterminate" ></div></h1>');
-    $(document).on('page:before-change',   function() {
+    $(document).on('page:fetch',   function() {
       $("body").after('<h1 class="progress"><div class="indeterminate" ></div></h1>'); });
     $(document).on('page:load',  function() {$(".progress").remove(); });
-    // $(document).on('page:restore', function() { NProgress.remove(); });
-  });
 }
 
 function handle_links(){
@@ -43,7 +38,4 @@ function init_navbar () {
   $(".button-collapse").sideNav();
 }
 
-function init_comments_modal () {
-  $('.modal-trigger').leanModal();
-}
 

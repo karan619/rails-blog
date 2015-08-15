@@ -3,8 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  $('.commentor').click (e) ->
-    x = @
+  $('.ringLoad').click (e) ->
     $(@).html('<div class="preloader-wrapper active">
     <div class="spinner-layer spinner-blue-only">
       <div class="circle-clipper left">
@@ -15,8 +14,4 @@ jQuery ->
         <div class="circle"></div>
       </div>
     </div>
-  </div>').fadeOut().fadeIn();
-    setTimeout ->
-      $(x).after 'Something went wrong'
-      $(x).remove()
-    , 1000
+  </div>')

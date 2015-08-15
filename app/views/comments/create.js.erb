@@ -1,0 +1,2 @@
+$('#postAction<%= @post.id %>').html("<%= escape_javascript(render('shared/postAction', p: @post)) %>");
+Materialize.toast("<span class='green-text'>Comment successful</span>", 3000);

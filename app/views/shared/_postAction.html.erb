@@ -1,0 +1,4 @@
+<%= link_to(pluralize(p.comments.count, "Comment"), comment_path(p), remote: true , class: 'ringLoad') %>
+<span id="post<%= p.id %>">
+<%= link_to("Comment", new_post_comment_path(p), remote: true, class: 'ringLoad right') %>
+</span>
