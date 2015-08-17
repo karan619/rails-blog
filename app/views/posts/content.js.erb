@@ -1,0 +1,1 @@
+$('#<%= @post.id %>content').html("<%=escape_javascript(raw sanitize @content, tags: tags(), attributes: attr()) %>");

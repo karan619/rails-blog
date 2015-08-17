@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/content/:id', to: 'posts#content', as: 'content'
   get 'users/new'
 
   get 'signup' => 'users#new'

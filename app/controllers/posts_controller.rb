@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
-  before_action :verify_logged_in?, only: [:new, :create]
+  before_action :verify_logged_in?, only: [:new, :create, :destroy, :update]
   def new
     @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save!
-      redirect_to post_path(@post)
+    if current_user().posts.create(post_params)
+      redirect_to root_url
     else
       render 'new'
     end
@@ -19,6 +18,47 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def content
+    @post = Post.find(params[:id])
+    @content = @post.content
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.js do
+        if @post.user.id != current_user().id
+          render js: 'Materialize.toast("That is not your post, OK?", 3000);'
+        else
+          @post.destroy!
+        end
+      end
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.js do
+        if @post.user.id != current_user().id
+          render js: 'Materialize.toast("That is not your post, OK?", 3000);'
+        else
+          @post.update_attributes(post_params)
+        end
+      end
+    end
   end
 
 private

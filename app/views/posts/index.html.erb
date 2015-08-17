@@ -1,4 +1,6 @@
 <% provide(:title, "Blog Posts") %>
+<%= render('posts/new', post: current_user.posts.build, ajax: false) if logged_in? %>
 <% @posts.each do |p| %>
- <%= render 'shared/posts', p: p %>
+  <%= render 'shared/posts', p: p %>
 <% end %>
+

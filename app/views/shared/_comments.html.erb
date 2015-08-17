@@ -1,5 +1,6 @@
 <% comments.each do |c| %>
-  <p><%= c.name %></p>
-  <%= c.id %>
-  <p><%= c.comment %></p>
+<div class="card-panel">
+  <span class="card-title btn btn-flat"><%= link_to "#{c.user.name} : ", user_path(c.user) %></span>
+   <span class="flow-text"><%= c.comment %> </span> <span class="right"> <%= time_ago_in_words(c.created_at) %> ago.</span>
+</div>
 <% end %>

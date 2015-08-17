@@ -1,2 +1,3 @@
 $('#post<%= @post.id %>').html("<%= escape_javascript(render('comments/new', post: @post, comment: @comment)) %>");
-$('.preloader-wrapper').remove();
+
+setTimeout(function(){$('#post<%= @post.id %> .validate').focus();}, 1000);

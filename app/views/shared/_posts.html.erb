@@ -1,13 +1,23 @@
-<div class="card">
+<div id="<%=p.id%>post">
+<div class="card" data-no-turbolink>
   <div class="card-content">
-    <div class="card-title red-text"><%= link_to p.user.name, user_path(p.user) %>:
-      <bold><strong><%= link_to p.title, post_path(p) %></strong></bold>
-      <small class="badge"><%= time_ago_in_words(p.created_at)%> ago.</small><hr/></div>
-      <div class="flow-text">
-        <%= raw sanitize p.content, tags: tags(), attributes: attr() %>
+     <span class="badge"><%= link_to "Edit", edit_post_path(p), class: 'green-text', remote: true %> | <%= link_to "Delete", post_path(p), method: 'delete', class: 'red-text', remote: true %></span>
+    <div class="card-title amber-text">
+      <span><%= link_to p.user.name, user_path(p.user_id) %> > <small class="badge"><%= time_ago_in_words(p.created_at)%> ago.</small></span>
+    </div>
+    <hr/>
+      <h4><%=p.title%></h4>
+      <hr/>
+      <div class="flow-text" id="<%= p.id %>content" data-turbolinks-temporary>
+        <%= raw sanitize p.content.first(1000), tags: tags(), attributes: attr() %>
+       <%= link_to "..load more", content_path(p.id), remote: true, class: 'ringLoad' if p.content.length > 1000 %>
       </div>
   </div>
-  <div class="card-action" id="postAction<%= p.id %>">
-    <%= render 'shared/postAction', p: p %>
+  <div class="card-action" id="postAction<%= p.id %>" data-turbolinks-temporary>
+    <%= link_to(pluralize(p.comments.count, "Comment"), comment_path(p), remote: true , class: 'ringLoad') %>
+    <span id="post<%= p.id %>" data-turbolinks-temporary>
+    <%= link_to("Comment", new_post_comment_path(p.id), remote: true, class: 'ringLoad right') %>
+    </span>
   </div>
+</div>
 </div>

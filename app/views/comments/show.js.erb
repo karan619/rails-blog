@@ -1,7 +1,7 @@
 a = $("#modaltrigger");
-a.click();
 $('.modal-content').html("<%= escape_javascript(render('shared/comments', comments: @comments)) %>");
-$('#postAction<%= @post.id %>').html("<%= escape_javascript(render('shared/postAction', p: @post)) %>");
+a.click();
 $('.modal-close').on('click', function(argument) {
   $('.modal-content').html('');
 })
+$('#postAction<%= @post.id %>').html("<%= escape_javascript(render('shared/postAction', p: @post)) %>");

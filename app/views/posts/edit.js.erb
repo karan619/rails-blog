@@ -1,0 +1,17 @@
+$("#<%= @post.id %>post").before("<div id='<%= @post.id %>editor'><%= escape_javascript(render 'posts/new', post: @post, ajax: true) %></div>");
+$("#<%= @post.id %>post").fadeOut();
+$('#<%= @post.id %>editor form .card-action').append("<a id='edit_cancel' class='white-text right btn'>cancel</a>")
+
+
+$('#<%= @post.id %>editor #edit_cancel').click(function(){
+  $("#<%= @post.id %>post").fadeIn();
+  $('#<%= @post.id %>editor').remove();
+  $('#<%= @post.id %>post').scrollIntoView();
+});
+  window.location.href = '/#<%= @post.id %>editor';
+$('#<%= @post.id %>editor input').focus().blur();
+
+setTimeout(function(){
+$('#<%= @post.id %>editor textarea').focus();
+},1000);
+

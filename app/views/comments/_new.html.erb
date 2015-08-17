@@ -1,6 +1,6 @@
 <%= form_for([post, comment], remote: true) do |f| %>
 
-  <%= f.text_field :comment, placeholder: 'Your Comment' %>
+  <%= f.text_field :comment, placeholder: 'Your Comment', class: 'validate', required: 'true' %>
   <%= f.submit "Comment", class: 'btn ringLoad' %>
 
 <% end %>

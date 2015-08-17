@@ -7,10 +7,9 @@ class ApplicationController < ActionController::Base
 
   def verify_logged_in?
     if request.xhr?
-      render :js => "window.location.href = '/login';" unless logged_in?
+      render :js => "window.location.href = '/login'; Materialize.toast('Did you Login?',1000);" unless logged_in?
     else
       redirect_to login_path unless logged_in?
     end
-    flash[:notice] = "Login to continue"
   end
 end
