@@ -3,11 +3,11 @@
 <%= form_for(post, remote: ajax) do |f| %>
   <div class="input-field">
     <%= f.text_field :title, class: 'validate', pattern: '.{3,100}', required: true, title: "3-100 characters", length: 100 %>
-    <%= f.label :title %>
+    <%= f.label :title, class: 'active' %>
   </div>
   <div class="input-field">
     <%= f.text_area :content, class:'materialize-textarea validate', pattern: '.{,10000}', required: true, title: "Max 10000 characters", length: 10000 %>
-    <%= f.label :content %>
+    <%= f.label :content, class: 'active' %>
   </div>
   <div class="card-action"><%= f.submit "Post", class: 'btn'%></div>
 <% end %>

@@ -1,17 +1,11 @@
-$("#<%= @post.id %>post").before("<div id='<%= @post.id %>editor'><%= escape_javascript(render 'posts/new', post: @post, ajax: true) %></div>");
-window.location.href = '/#<%= @post.id %>editor';
-$('#<%= @post.id %>editor input').focus();
-$("#<%= @post.id %>post").hide();
-$('#<%= @post.id %>editor form .card-action').append("<a id='edit_cancel' class='white-text right btn'>cancel</a>")
+$("#<%= @post.id %>post").fadeOut().after("<div id='<%= @post.id %>editor'><%= escape_javascript(render 'posts/new', post: @post, ajax: true) %></div>");
+$('#<%= @post.id %>editor form .card-action').append("<a id='edit_cancel' class='white-text right btn'>cancel</a>");
 
 
-$('#<%= @post.id %>editor #edit_cancel').click(function(){
-  $("#<%= @post.id %>post").fadeIn();
-  $('#<%= @post.id %>editor').remove();
-  $('#<%= @post.id %>post').scrollIntoView();
+$('#<%= @post.id %>editor').on('click', "#edit_cancel",function(){
+  $('div#<%= @post.id %>editor').remove();
+  $('#<%= @post.id %>post').fadeIn().scrollIntoView({block: "end", behavior: "smooth"});
 });
 
-setTimeout(function(){
-$('#<%= @post.id %>editor textarea').focus();
-},1500);
+
 

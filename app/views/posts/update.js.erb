@@ -1,4 +1,4 @@
 $("#<%= @post.id %>post").html("<%= escape_javascript(render('shared/posts', p: @post))%>");
-  $("#<%= @post.id %>post").fadeIn();
   $('#<%= @post.id %>editor').remove();
+  $("#<%= @post.id %>post").fadeIn();
   $('#<%= @post.id %>post').scrollIntoView();
