@@ -21,8 +21,9 @@ $(document).ready(function(){
   init_navbar();
   init_loader();
   // handle_links();
-  $('nav li a').on('click',   function() {
-      $("body").after('<h1 class="progress"><div class="indeterminate" ></div></h1>'); });
+  $('nav a').click(function(){
+      $(document).after('<h1 class="progress"><div class="indeterminate" ></div></h1>');
+   });
   window.onbeforeunload = premove;
 });
 

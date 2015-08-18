@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     @current_user = nil
     respond_to do |format|
-      format.js{ render js: "Materialize.toast('Logged Out', 3000); window.location.href = '/';"}
+      format.js{ render js: "Materialize.toast('Logged Out', 3000); window.location.href = '/';", turbolinks: true}
     end
   end
 end

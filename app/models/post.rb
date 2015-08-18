@@ -9,8 +9,11 @@ class Post < ActiveRecord::Base
   scope :al, -> {Post.joins(:user, :comments).select("posts.*, COUNT(comments.id) as comment_count, users.name as user_name").group("posts.id")}
   def validate_script
     content.scan(/<script.*>.*<\/script>/i).each do |c|
-       self.content[c] = '' unless c.match(VALID_SCRIPT)
+      unless c.match(VALID_SCRIPT)
+        self.content[c] = ''
+      end
     end
+    self.content.gsub!(/<script/, '<script type="text/javascript" data-turbolinks-eval=always ')
   end
 
   def method_name

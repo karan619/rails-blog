@@ -1,5 +1,5 @@
 <loader id="loader"></loader>
-<div class="navbar-fixed">
+<div class="navbar-fixe">
 <nav class="blue">
   <div class="container">
     <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -14,9 +14,9 @@
   <li class="brand grey lighten-5">
     <%= "Hello, #{current_user || 'Guest'}" %>
   </li>
-      <li><%= link_to "Home", root_path, :"data-no-turbolink" => true %></li>
+      <li><%= link_to "Home", root_path, "data-no-turbolink" => false %></li>
     <% if logged_in? %>
-      <li><%= link_to 'Profile', user_path(current_user), :"data-no-turbolink" => true %> </li>
+      <li><%= link_to 'Profile', user_path(current_user), "data-no-turbolink" => false%> </li>
       <li><%= link_to "Write Post", new_post_path %> </li>
       <li><%=link_to "Log out", session_path(current_user), method: 'delete', remote: true %></li>
       <% else %>

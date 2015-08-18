@@ -9,9 +9,9 @@ $('#<%= @post.id %>editor #edit_cancel').click(function(){
   $('#<%= @post.id %>post').scrollIntoView();
 });
   window.location.href = '/#<%= @post.id %>editor';
-$('#<%= @post.id %>editor input').focus().blur();
+$('#<%= @post.id %>editor input').focus();
 
 setTimeout(function(){
 $('#<%= @post.id %>editor textarea').focus();
-},1000);
+},1500);
 
