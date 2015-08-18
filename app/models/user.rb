@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :comments, through: :posts
 
   before_save :cap

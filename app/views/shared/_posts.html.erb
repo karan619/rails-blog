@@ -1,7 +1,7 @@
 <div id="<%=p.id%>post">
 <div class="card" data-no-turbolink>
   <div class="card-content">
-     <span class="badge"><%= link_to "Edit", edit_post_path(p), class: 'green-text', remote: true %> | <%= link_to "Delete", post_path(p), method: 'delete', class: 'red-text', remote: true %></span>
+     <span class="badge"><%= link_to "Edit", edit_post_path(p), class: 'green-text', remote: true %> | <%= link_to "Delete", post_path(p), method: 'delete', class: 'red-text', remote: true, data: {confirm: "Are you sure?"} %></span>
     <div class="card-title amber-text">
       <span><%= link_to p.user.name, user_path(p.user_id) %> > <small class="badge"><%= time_ago_in_words(p.created_at)%> ago.</small></span>
     </div>

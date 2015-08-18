@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   VALID_SCRIPT = /(<script src=("|')https:\/\/gist\.github\.com\/\S+\.js("|')>)(<\/script>)/
   before_save :validate_script
