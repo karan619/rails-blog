@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def verify_logged_in?
     if request.xhr?
-      render :js => "window.location.href = '/login'; Materialize.toast('Did you Login?',1000);", turbolinks: true unless logged_in?
+      render :js => "Materialize.toast('Did you Login?<script>window.location.href = \'/login\';</script>',1000);", turbolinks: true unless logged_in?
     else
       redirect_to login_path unless logged_in?
     end
