@@ -16,3 +16,11 @@ ringLoad = (e) ->
     </div>')
 $(document).on 'ready', (event) =>
   $(document).on 'click', '.ringLoad', ringLoad
+jQuery ->
+  $('#search').autocomplete
+    source: '/search_suggestions'
+    select: (event, ui) ->
+      $("input#search").val ui.item.value
+      $("#searchform").submit
+  $("#searchform").on 'submit', ->
+    $('ul#ui-id-1').remove()

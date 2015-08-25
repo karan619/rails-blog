@@ -1,0 +1,7 @@
+<%= form_tag(posts_path, method: "get", id: 'searchform', class: 'card-panel') do %>
+<div class="input-field">
+<%= label_tag :search, "Search (Suggests blog title)", class: 'active' %>
+  <%= text_field_tag :search, params[:search], id: 'search', class: 'validate' %>
+</div>
+  <input type="submit" style="position:absolute; left:-999px" />
+<% end %>

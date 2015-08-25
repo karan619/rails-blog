@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :search_suggestions
   get '/content/:id', to: 'posts#content', as: 'content'
   get 'users/new'
 
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create,  :destroy, :show], shallow: true
   end
   root 'posts#index'
+  get '/posts' => 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
