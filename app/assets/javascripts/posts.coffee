@@ -21,8 +21,8 @@ jQuery ->
     source: '/search_suggestions'
     select: (event, ui) ->
       $("input#search").val ui.item.value
-      $("#searchform").submit
-  $("#searchform").on 'submit', (e) ->
+      $("#searchform").submit()
+  $("#searchform").on 'submit', (e) =>
     e.preventDefault()
     $('ul#ui-id-1').remove()
-    @.submit()
+    $(@).trigger('submit');
