@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem 'sunspot_solr'
 gem 'sunspot_rails'
-gem 'jquery-ui-rails'
-gem 'hirb'
+#gem 'jquery-ui-rails' no longer will use this gem
+#gem 'hirb'
 gem 'jquery-turbolinks'
 gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
