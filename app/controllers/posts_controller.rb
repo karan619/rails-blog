@@ -13,7 +13,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = params[:search] ?  Post.where("title ilike ? or content ilike ?", "%#{params[:search]}%", "%#{params[:search]}%") : Post.all
+    @search = Post.search {fulltext params[:search]}
+    @posts = @search.results
   end
 
   def show

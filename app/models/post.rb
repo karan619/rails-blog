@@ -2,6 +2,13 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
 
+  searchable do
+    text :title, :content
+    text :comments do
+      comments.map { |comment| comment.comment }
+    end
+    text :user
+  end
   VALID_SCRIPT = /(<script src=("|')https:\/\/gist\.github\.com\/\S+\.js("|')>)(<\/script>)/
   before_save :validate_script
 

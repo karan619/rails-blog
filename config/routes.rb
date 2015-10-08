@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :search_suggestions
   get '/content/:id', to: 'posts#content', as: 'content'
   get 'users/new'
 
