@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'sunspot_solr'
 gem 'sunspot_rails'
 gem 'jquery-ui-rails'
 gem 'hirb'
