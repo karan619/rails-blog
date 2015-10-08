@@ -19,5 +19,6 @@
 #Ignore solr indexing
 solr/
 
+
 #ignore vim swp files
 *.swp
