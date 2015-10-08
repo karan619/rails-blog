@@ -15,3 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+#Ignore solr indexing
+solr/
+
+#ignore vim swp files
+*.swp
